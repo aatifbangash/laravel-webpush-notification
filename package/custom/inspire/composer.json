@@ -1,0 +1,20 @@
+{
+    "name": "atif.ali/inspire",
+    "description": "custom package by atif",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AtifAli\\Inspire\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "atif",
+            "email": "atif.ali@nmxglobalsoftware.com"
+        }
+    ]
+}

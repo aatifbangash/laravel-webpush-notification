@@ -185,4 +185,5 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'controller_endpoint' => env('API_GATEWAY_URL', ''),
 ];

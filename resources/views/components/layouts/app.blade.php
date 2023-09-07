@@ -1,12 +1,20 @@
 <x-layouts.base>
-    <x-slot:title>
-        Home page
-    </x-slot>
+    <x-slot:title>{{ $title ?? 'Heartbeat Portal' }}</x-slot>
 
-        <x-header/>
+    @if(in_array(request()->route()->getName(), ['home', 'login', 'register']))
+        @include('header')
+    @endif
+
+    @if(!in_array(request()->route()->getName(), ['home', 'login', 'register']))
+        @include('nav')
+        @include('sidebar')
+    @endif
+
     {{ $slot }}
 
-    @if(!empty($showFooter))
+    @include('toast')
+    @if(in_array(request()->route()->getName(), ['home', 'login', 'register']))
         @include('footer')
     @endif
+
 </x-layouts.base>

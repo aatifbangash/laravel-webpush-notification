@@ -1,0 +1,4 @@
+* User login and registration with sanctum token
+* Show posts along with categories and comments and likes
+* Allow user to delete his or her own posts only
+* implement the role management system by gates and policies

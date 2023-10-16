@@ -32,6 +32,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'content', 'user_id'];
+
     public function categories() : BelongsToMany {
         return $this->belongsToMany(Category::class);
     }

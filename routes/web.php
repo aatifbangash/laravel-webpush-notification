@@ -13,7 +13,12 @@ use App\Notifications\PushDemo;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/webpush', function () {
     return view('webpush');
 });
 

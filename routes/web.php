@@ -7,6 +7,7 @@ use App\Livewire\Register;
 use App\Livewire\Single;
 use App\Livewire\Test;
 use App\Livewire\UserManagement;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use App\Notifications\PushDemo;
@@ -15,7 +16,12 @@ use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    $data = Category::with('posts:id,name,user_id')->get()->makeHidden('pivot');
+    return $data->map(function ($category) {
+        $category->posts->map(fn($post) => $post->makeHidden('pivot'));
+        return $category;
+    });
+//    return view('welcome');
 });
 
 Route::get('/webpush', function () {
@@ -31,6 +37,11 @@ Route::get('/query', function () {
         ]
     ])->get();
 
+    $user = User::whereId('1')->select(['id', 'email'])->first();
+//Auth::logout();
+    Auth::login($user);
+
+    return true;
 //    $data = User::has('posts' )->find(1); // has least one post
 
 //    $data = User::withSum('posts', 'amount')->find(1);

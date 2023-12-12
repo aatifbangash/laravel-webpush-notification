@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
+
+//        Post::factory(1000)->create();
 //        User::factory(1)->has(
 //            Category::factory(5)->has(
 //                Post::factory(2)->has(
@@ -27,9 +29,9 @@ class DatabaseSeeder extends Seeder
 //            )
 //        )->create();
 
-        User::factory(1)->has(
-            Category::factory(1)->has(
-                Post::factory(1)
+        User::factory(2)->has(
+            Category::factory(2)->has(
+                Post::factory(5)
                     ->state(function (array $attributes, Category $category) {
                         return ['user_id' => $category->user_id];
                     })->has(
@@ -38,7 +40,7 @@ class DatabaseSeeder extends Seeder
                                 return ['user_id' => $post->user_id];
                             })
                     )->has(
-                        Like::factory(3)
+                        Like::factory(2)
                             ->state(function (array $attributes, Post $post) {
                                 return ['user_id' => $post->user_id];
                             })

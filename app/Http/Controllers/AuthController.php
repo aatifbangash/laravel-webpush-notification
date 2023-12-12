@@ -77,7 +77,7 @@ class AuthController extends Controller
         return $request->user()->tokenCan('post:create');
     }
 
-    public function me2(Request $request): mixed {
+    public function ability(Request $request): mixed {
         return $request->user()->currentAccessToken();
     }
 }

@@ -17,7 +17,7 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'posts' => PostResource::collection($this->posts)
+            'posts' => $this?->posts->isNotEmpty() ? PostResource::collection($this->posts) : null
         ];
     }
 }
